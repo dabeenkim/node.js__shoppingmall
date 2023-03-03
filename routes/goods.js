@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const Cart = require("../schemas/cart.js");
+const Goods = require("../schemas/goods.js");
 
 const goods = [
   {
@@ -48,7 +50,7 @@ router.get("/goods/:goodsId", (req, res) => {
   res.json({ detail });
 });
 
-const Cart = require("../../schemas/cart.js");
+
 
 router.post("/goods/:goodsId/cart", async (req, res) => {
   const { goodsId } = req.params;
@@ -92,7 +94,7 @@ router.delete("/goods/:goodsId/cart", async (req, res) => {
   res.json({ result: "success" });
 })
 
-const Goods = require("../../schemas/goods.js");
+
 router.post("/goods", async (req, res) => {
   const { goodsId, name, thumbnailUrl, category, price } = req.body;
 
